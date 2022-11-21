@@ -6,10 +6,6 @@ function MainPage() {
 
     
 return (
-    <>
-    <div>
-    <Nav/>
-    </div>
     <div className="px-5 py-5 my-5 text-center">
         
         <div className="container-sm">
@@ -19,11 +15,10 @@ return (
         A react application designed to gather student feedback metrics.
         </p>  
         <p className="lead mb-4 text-light fw-semibold fs-2" >
-        Navbar contains the options
+        Select options on the navbar
         </p>  
     </div>
     </div>
-    </>
 );
 }
 console.log("Enjoy!")

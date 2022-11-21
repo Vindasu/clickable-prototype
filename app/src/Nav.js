@@ -1,5 +1,6 @@
 import { NavLink, Link } from 'react-router-dom';
 import React, { useEffect, useState, useContext} from 'react';
+import './App.css'
 
 
 function Nav() {
