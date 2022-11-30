@@ -5,7 +5,7 @@ import './Form.css';
 import 'bootstrap/dist/css/bootstrap.css';
 
 function ModularFeedback({clickedState}) {
-    console.log(clickedState + "child data")            
+    console.log(clickedState + " child data")            
     const unhappy = "How can we resolve your current unease?"
     const neutral = "What can we do to make your experience positive?"
     const happy = "We're glad you enjoyed it! What was one highlight for you?"
@@ -25,11 +25,11 @@ function ModularFeedback({clickedState}) {
 
 export default function Emoji() {
 
-    const [textarea, setTextarea] = useState("Please provide additional feedback!")
+    const [textarea, setTextarea] = useState("Please provide feedback!")
     const handleChange = (event) => {
         setTextarea(event.target.value)
     }
-    
+
     const [emojiScale, setEmojiScale] = useState("Neutral")
 
     const handleSDChange = (event) => {
@@ -55,10 +55,16 @@ export default function Emoji() {
         { title: 'Agree', changer: handleAChange, unselectedURL: 'https://i.imgur.com/NVkBB13.png', scale: 'positive', id: 4 },
         { title: 'Strongly Agree', changer: handleSAChange, unselectedURL: 'https://i.imgur.com/l8J9GIk.png', scale: 'positive', id: 5 },
     ];
+    const emojiLabels = emojis.map(emoji =>
+        <li className="emojilabels" key={emoji.id}>
+            {emoji.title}
+        </li>
+        )
+
     const emojiTitles = emojis.map(emoji =>
         <>
         <input className='input-hidden' type='radio' name='emoji' value={emojiScale === emoji.title} onChange={emoji.changer} key={emoji.id} id={emoji.id} />
-        <label for={emoji.id}>
+        <label className="emoji" for={emoji.id}>
             <img src={emoji.unselectedURL} alt={emoji.title}/>     
         </label>
         </>
@@ -83,8 +89,13 @@ export default function Emoji() {
                 <h1>
                     I had a positive learning experience today.
                 </h1>
+                <label className="emojilabeltag">
+                {emojiLabels}
+                </label>
+                <ul className="emoji">
                 {emojiTitles}
-                <label>
+                </ul>
+                <label className="feedback">
                 <ModularFeedback clickedState={clickedState}/>
                 </label>
                 <textarea value={textarea} onChange={handleChange} />

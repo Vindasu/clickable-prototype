@@ -18,7 +18,7 @@ function Emoji() {
     function handleChange(){
         setValue();
     // }
-    const emojiTitles = emojis.map(emoji =>
+    const emojiLabels = emojis.map(emoji =>
         <li className="title" key={emoji.id}>
             {emoji.title}
         </li>)
@@ -31,7 +31,7 @@ function Emoji() {
         return(
             <div>
                 <label className='inline'>
-                    {emojiTitles}
+                    {emojiLabels}
                 </label>
                 <ul className="inline">
                 <RadioGroup name="emoji" selectedValue={} onChange={} >
